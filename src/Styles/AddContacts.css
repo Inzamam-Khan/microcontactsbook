@@ -1,0 +1,33 @@
+
+
+.addContactCard{
+    
+    margin: auto;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    width:25em;
+    align-items: center;
+    background-color: #0080a73e;
+    border-radius: 5em;
+    
+}
+
+.buttons>button{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #0081a7;
+    cursor: pointer;
+    color: #e9d8a6;
+    outline:none;
+    margin: 2em;
+    font-size: larger;
+
+}
+input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 3px solid #0081a7;
+    color:#9bf6ff;
+}

@@ -1,0 +1,46 @@
+img{
+    width:4em;
+    height:4em;
+    border-radius: 5em;
+}
+
+.contactListCard{
+    
+    margin:.5em 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: normal;
+    overflow: hidden;
+    
+}
+
+
+.card_inner{
+    display: flex;
+    border-bottom:.1px inset #9bf6ff;
+    width:25em;
+    align-items: center;
+    margin:1em .5em .5em .5em;
+    padding:0.5em;
+}
+
+.info>.buttons{
+    display: flex;    
+    margin-top: .5em;    
+}
+.info{
+    margin-left:1.2em;
+    padding:5px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+
+.buttons>svg{
+    margin-right: 1em;
+}
+
+.info>div>span:nth-child(1){
+    color:#9bf6ff;
+}
+

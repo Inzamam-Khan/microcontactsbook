@@ -1,0 +1,43 @@
+
+
+.inner_main{
+    display: flex;
+    margin-left: 1em;
+    align-items: center;
+    border-bottom:0.5px solid #1A5E63;
+    
+    
+    
+   
+}
+
+.heading{
+    display: flex;
+    margin-left: auto;
+    align-items:center;
+    cursor:pointer; 
+    padding: none;
+    
+    
+    
+    
+    
+}
+
+.inner_main>img{
+    margin-left: auto;
+    margin-right: 2em;cursor:pointer;
+    
+
+    width:2em;
+    height:2em;
+    border-radius:50em;
+
+}
+
+.inner_main>.menu_icon{
+    margin-right: 2em;
+    cursor:pointer;
+    
+}
+

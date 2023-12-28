@@ -1,0 +1,27 @@
+.menu_main{
+    position: absolute;
+    top:3em;
+    right:-.0em;
+    padding: 1em;
+    color:gold;
+    background-color: #0a9496b7;   
+    
+    border-radius: 5em;
+}
+
+
+.cross_icon{
+    position: relative;
+left:6em;
+}
+
+.menu_main>div{
+    margin-top:5px;
+    padding: 5px;
+}
+.search_field{
+    background-color: transparent;
+    outline: none;
+    border:none;
+    border-bottom: .5px solid gold;
+}

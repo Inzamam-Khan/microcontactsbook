@@ -1,4 +1,71 @@
+/* mobile */
+@media (min-width:360px){
+    .addContact_main{
+        
+        flex-direction: column;
+        align-items: center;
+        
+    }
 
+    .addContacts_section_left{
+        margin:0 1em 0 1em;
+    }
+    .addContacts_section_left>img{
+        width: 100%;
+        height: auto;
+    }
+    .addContacts_user_arrray> * + *{
+        margin-left:1em ;
+        
+    }
+
+
+}
+
+/* pcs */
+@media (min-width:361px){
+    .addContact_main{
+        flex-direction: row;
+        justify-content: space-around;
+
+
+    }.addContacts_section_left{
+        width:100%;
+        height: auto;
+        
+        
+        
+    }
+    
+
+
+
+}
+
+.addContact_main{
+    display: flex;
+}
+
+
+.addContacts_section_left>img{
+    width:350px;
+    height: auto;
+    border-radius: 25em;
+    
+    
+}
+
+.addContacts_section_left{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width:auto; */
+    height: auto;
+    
+    
+}
 
 .addContactCard{
     
@@ -6,7 +73,7 @@
     margin-top: 2em;
     display: flex;
     flex-direction: column;
-    width:25em;
+    width:100%;
     align-items: center;
     background-color: #0080a73e;
     border-radius: 5em;
@@ -31,3 +98,18 @@ input{
     border-bottom: 3px solid #0081a7;
     color:#9bf6ff;
 }
+
+
+.addContacts_section_left>input{
+    width: 1em;
+    
+    position: absolute;
+    left:2.8em;
+    bottom: 1em;
+    background-color: none;
+    
+    z-index: -9;
+}
+
+
+

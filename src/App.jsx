@@ -3,29 +3,56 @@ import Header from '../src/Components/Header'
 import ContactsList from './Components/ContactsList'
 import AddContacts from './Components/AddContacts'
 import NotFound from './Components/NotFound'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Menu from './Components/Menu'
 
 
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
+import ContactDetails from './Components/ContactDetails'
+import { useSelector } from 'react-redux'
 
 function App() {
-  const [editId,setEditId]=useState('')
+  const [editItem,setEditItem]=useState()
+  const favContacts=useSelector(state=>state.addFavReducer)
+  const searchTerm=useSelector(state=>state.setSearchReducer)
+const mode=useSelector(state=>state.setModeReducer)  
+useEffect(()=>{
+  localStorage.setItem("mode",JSON.stringify(mode))
+},[mode])
+//true
+const root=document.getElementById('body').style;
+ if(mode){
+  
+  root.backgroundColor='#023047'
+  root.color='#8338ec'
+ }
+ //false
+ else{
+  root.backgroundColor="";
+  root.color=""
+ 
+ }
+  
 
 const handleId=(item)=>{
   
   
-  setEditId(item)
+  setEditItem(item)
 
 }
+
+
   return (
     <div className="app-main">
       <Router>
         <Header menu={<Menu/>}/>
         <Routes>
         <Route element={<NotFound/>}/>
-          <Route exact path='/' element={<ContactsList handleId={handleId}/>}/>
-          <Route exact path='/addContact' element={<AddContacts editId={editId}/>}/>
+          <Route exact path='/' element={<ContactsList searchTerm={searchTerm} />}/>
+          <Route exact path='/addContact' element={<AddContacts />}/>
+          <Route exact path='/editContact' element={<AddContacts editItem={editItem}/>}/>
+          <Route exact path='/favourites' element={<ContactsList favContacts={favContacts}/>}/>
+          <Route exact path='/contactDetails/:detailsId' element={<ContactDetails handleId={handleId}/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Router>

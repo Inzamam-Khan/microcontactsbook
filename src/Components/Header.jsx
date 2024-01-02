@@ -19,7 +19,8 @@ return (
 
 
             
-            <img src={user} alt=""/>
+            <img src={user} alt="" onClick={()=>{navigate('/myDetails')}}/>
+            
 
 
 

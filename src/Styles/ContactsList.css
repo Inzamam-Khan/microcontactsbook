@@ -5,19 +5,29 @@ img{
 }
 
 .contactListCard{
-    
+    position: relative;
     margin:.5em 0 0 0;
     display: flex;
     flex-wrap: wrap;
+    
     justify-content: flex-start;
     align-items: normal;
     overflow: hidden;
     
 }
-
+.contactListCard>a{
+    color:#fdf0d5;
+    text-decoration: none;
+    
+    
+    
+    
+}
 
 .card_inner{
+    
     display: flex;
+    
     border-bottom:.1px inset #9bf6ff;
     width:25em;
     align-items: center;

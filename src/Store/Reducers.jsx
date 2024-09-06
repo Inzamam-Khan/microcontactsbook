@@ -133,6 +133,26 @@ function setModeReducer(state=setModeInitial(),action){
 }
 
 
+function selectedContact(state=null,action){
+    const {payload,type}=action;
+
+    switch(type){
+        case "SET_ID":{
+            return state=payload;
+        }
+        case "REMOVE_ID":
+        {
+            return state=null;
+
+        }
+        default:{
+            return state;
+        }
+    }
+
+}
+
+
 
 
 
@@ -142,5 +162,5 @@ function setModeReducer(state=setModeInitial(),action){
 
 export const allReducers=combineReducers({
     addContactReducer,addFavReducer,
-    setSearchReducer,setModeReducer
+    setSearchReducer,setModeReducer,selectedContact
 })

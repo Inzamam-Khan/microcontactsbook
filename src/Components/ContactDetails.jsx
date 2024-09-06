@@ -10,9 +10,13 @@ export default function ContactDetails({handleId}){
 
     const dispatch=useDispatch()
 const navigate=useNavigate()
+
     const {detailsId}=useParams();
+    
     const details=useSelector(state=>state.addContactReducer)
+    
     const mode=useSelector(state=>state.setModeReducer)
+
     const contact=details.filter(i=>i.id===detailsId)
     
     const {name,email,number,img}=contact?.[0]

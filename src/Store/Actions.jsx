@@ -64,3 +64,18 @@ export const edit=(payload)=>{
     }
 
 }
+
+
+
+export const setId=(payload)=>{
+    return{
+        type:"SET_ID",
+        payload
+    }
+}
+
+export const removeId=()=>{
+    return{
+        type:'REMOVE_ID'
+    }
+}

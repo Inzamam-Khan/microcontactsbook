@@ -19,6 +19,9 @@ export default function AddContacts({editItem}){
     const [name,setName]=useState(editItem?.name||"");
     const [email,setEmail]=useState(editItem?.email||"");
     const [number,setNumber]=useState(editItem?.number||"")
+    
+    const [tags,setTags]=useState("Family")
+    console.log(tags)
     const [userImage,setUserImage]=useState(user)
     const dispatch=useDispatch()
     const navigate=useNavigate()
@@ -34,21 +37,22 @@ const handleAdd=(e)=>{
         if(name===""|| number===""){
             alert('Fields Missing')}
             else{
-        dispatch(edit({name,email,number,id:editItem.id,img:userImage}))
+        dispatch(edit({name,email,number,tags,id:editItem.id,img:userImage}))
             
 setName(" ");
 setEmail(" ");
 setNumber(" ");
+setTags("Family")
 navigate('/')
     }
 
     }
     else{
         if(name===""|| number===""){
-            alert('errro')
+            alert('Fields Missing')
         }
         else{
-            dispatch(add({name,email,number,id:v4(),img:userImage}))
+            dispatch(add({name,email,number,tags,id:v4(),img:userImage}))
                 
 setName(" ");
 setEmail(" ");
@@ -60,70 +64,68 @@ navigate('/')
 
 }
     return(
-        <div className="addContact_main" >
-            
-
-            <div className="addContacts_section_left" style={{position:'relative'}}>
-               
-
-               
-               <img src={userImage}  name="avatar" alt="" />
-
-               <div className='addContacts_user_arrray' >
-                {imgArray.map(i=>{return(<img name="user-select" onClick={(e)=>{setUserImage(i);}} src={i}/>)})}
-               </div>
-               
-               
+        <div className="addContact_main border-r border-slate-gray md:w-[22rem] h-[85vh]" >
 
 
 
+<div className="md:w-full  h-full  bg-transparent  border-red-500 rounded-lg shadow p-6 dark:bg-gray-800 dark:border-gray-700">
+   
+    <form className="space-y-3  border-blue-500 w-full" action="#">
+    <span className="text-xl font-semibold mb-1 " >Add Contact</span>
 
-
-                {/* <svg style={{position:'absolute',left:'2.5em',bottom:'1em'}} xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
-            <path fill="#003566" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>  */}
-
-
-                {/* <input type="file" accept='img/*' id="userimg"  onChange={(e)=>{setUserImage(e.target.value)}}/> */}
-            </div>
-
-            <div className="addContactCard">
-
-            <h2>{title} Contact</h2>
-<form>
-            <div className="name">
-                <h5>Name:</h5>
-                <input maxLength="25" type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+            <div className='flex  w-full flex-1 gap-5'>
+            {imgArray.map(i=>{return(<img name="user-select" className={`rounded-full w-[2rem] ${userImage == i ? `border-[3px] border-blue-500` : ``} `} onClick={(e)=>{setUserImage(i);}} src={i}/>)})}
             </div>
 
 
-            <div className="number">
-                <h5>Number:</h5>
-                <input type="tel" maxLength={10} value={number} onChange={(e)=>{setNumber(e.target.value)}}/>
-            </div>
 
+        <div >
+            <label for="name" className="block mb-2 text-sm font-medium  ">Name</label>
+            <input value={name} onChange={(e)=>{setName(e.target.value)}} type="name" name="name" id="name" className="bg-transparent border  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="John Doe" required />
+        </div>
+        <div>
+            <label for="number" className="block mb-2 text-sm font-medium  ">Number</label>
+            <input type="tel" maxLength={10} value={number} onChange={(e)=>{setNumber(e.target.value)}} name="number" id="password"  placeholder="johndoe56@" className="bg-transparent border   text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " />
+        </div>
+        
+        <div>
+            <label for="email" className="block mb-2 text-sm font-medium  ">Email</label>
+            <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} name="email" id="email"  placeholder="+91 456xxxx093" className="bg-transparent border   text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " required />
+        </div>
 
-            <div className="email">
-                <h5>Email:</h5>
-                <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
-            </div>
-
-           
-
-
-            <div className="buttons">
-                 {/* {props?.editItem?.detailsId?
-            <button type="submit"onClick={handleUpdate}>Update</button>
-            :<button type="submit" onClick={handleAdd}>Add</button>
-                 } */}
-                 <button onClick={handleAdd}>{submitText}</button>
+        <div>
+            <label for="tags" className="block mb-2 text-sm font-medium  ">Tags</label>
+            <select name="tags" id="tags" value={tags} onChange={(e)=>setTags(e.target.value)} className="bg-transparent border border-gray-300 
+             text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
+                <option value="Family" className='' >Family</option>
+                <option value="Friends" >Friends</option>
+                <option value="Office">Office</option>
                 
-                <button onClick={()=>{navigate('/')}}>Cancel</button>
-            </div>
-            </form>
-            
+                </select>
         </div>
 
+        <button onClick={handleAdd} type="submit" className="w-full  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center
+         ">{submitText}</button>
+        
+        <button onClick={()=>{navigate('/')}} type="submit" className="w-full border border-neutral-400 bg-transparent
+         hover:bg-neutral-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center
+         ">Cancel</button>
+    </form>
+</div>
 
-        </div>
+
+
+
+
+         </div>
     )
 }
+
+
+
+
+
+
+
+
+

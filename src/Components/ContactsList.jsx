@@ -131,7 +131,7 @@ export default function ContactsList(props) {
 
     return (
         // contacts card container
-        <div className="list-main border flex flex-col items-start justify-start md:border-r border-slate-gray  h-[85vH] md:w-[24rem] space-y-1 p-6  " >
+        <div className="list-main  flex flex-col items-start justify-start md:border-r border-slate-gray  h-[85vH] md:w-[24rem] space-y-1 p-6  " >
 
             <span className="text-xl font-semibold mb-1 " >{title} {t.length}</span>
 

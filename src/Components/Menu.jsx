@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearch, setMode } from '../Store/Actions';
 
-export default function Menu({ setShow }) {
+export default function Menu({ setShow,isOpen,setIsOpen }) {
     const [showSearch, setShowSearch] = useState(false);
     const [searchValue, setSearchValue] = useState("")
     const navigate = useNavigate()
@@ -31,7 +31,7 @@ export default function Menu({ setShow }) {
     }
     return (
         
-        <div className="menu_main border-r border-slate-gray  bg-transparent flex flex-wrap items-start justify-start  p-5 h-[85vh]" style={{ zIndex: '99999' }}>
+        <div className="menu_main md:border-r border-slate-gray  bg-transparent flex flex-wrap items-start justify-start  p-5 h-[85vh]" style={{ zIndex: '99999' }}>
 
             <div id="sort " value={mode} className="switch_mode flex flex-1 items-center justify-start  font-montserrat text-sm gap-3  border-slate-gray rounded-xl p-1 w-full px-4  " >
 
@@ -47,25 +47,25 @@ export default function Menu({ setShow }) {
 
             </div>
 
-            <div id="home " value={mode} className=" cursor-pointer switch_mode flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4  " onClick={() => navigate("/")}>
+            <div id="home " value={mode} className=" cursor-pointer switch_mode flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4  " onClick={() => {navigate("/"); setIsOpen(!isOpen)}}>
 
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='w-5 h-4' fill={`${mode? `#DEE2E6`: `black`}`} >
                     <path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" /></svg>
                 Home</div>
 
-            <div className="cursor-pointer search flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4 " onClick={() => { setShowSearch(true) }}>
+            <div className="cursor-pointer search flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4 " onClick={() => { setShowSearch(true);}}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16"fill={`${mode? `#DEE2E6`: `black`}`}  viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>
                 Search
             </div>
 
             {showSearch && <input type="text" className="px-2 search_field border border-slate-gray ml-2" value={searchValue} onChange={(e) => { setSearchValue(e.target.value) }} placeholder='Search' />}
 
-            <div className="add_contacts cursor-pointer border-slate-gray flex items-center justify-start gap-3 border rounded-xl p-1 w-full px-4 " onClick={()=>navigate("/addContact")}>
+            <div className="add_contacts cursor-pointer border-slate-gray flex items-center justify-start gap-3 border rounded-xl p-1 w-full px-4 " onClick={()=>{navigate("/addContact");setIsOpen(!isOpen)}}>
                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512" fill={`${mode? `#DEE2E6`: `black`}`} >
                  <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" /></svg> Add New </div>
 
-            <div className=" cursor-pointer menu_fav flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4 " onClick={() => { navigate('/favourites') }}>
+            <div className=" cursor-pointer menu_fav flex items-center justify-start gap-3 border border-slate-gray rounded-xl p-1 w-full px-4 " onClick={() => { navigate('/favourites');setIsOpen(!isOpen) }}>
                 <svg fill={`${mode? `#DEE2E6`: `black`}`}  xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
                     <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" /></svg>
                 Favourites</div>

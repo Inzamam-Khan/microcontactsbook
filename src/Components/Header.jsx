@@ -36,9 +36,9 @@ return (
 
 
             <div className={`fixed transform ease-in-out transition-all duration-300 ${isOpen? `translate-x-0`: `translate-x-[40rem]`} 
-            md:hidden  border ${mode? `bg-[#212529]`:`bg-[#DEE2E6]`} z-50  w-[20rem] top-[4rem] h-[90vh]`}>
+            md:hidden   ${mode? `bg-[#212529]`:`bg-[#DEE2E6]`} z-50  w-[20rem] top-[4rem] h-[90vh]`}>
 
-<Menu/>
+<Menu isOpen={isOpen} setIsOpen={setIsOpen}/>
 </div>
 
 

@@ -16,7 +16,7 @@ return (
 
         <div className=" relative  p-2 flex items-center justify-center border-b  border-neutral-600 w-[97vw]">
 
-                <Link to="/">
+            <Link to="/">
             <h4 className='text-center text-3xl font-semibold font-palanquin text-blue-500 '>Contacts Book</h4>
             </Link>
 
@@ -35,7 +35,7 @@ return (
 
 
 
-            <div className={`fixed transform ease-in-out transition-all duration-300 ${isOpen? `translate-x-0`: `translate-x-[40rem]`} 
+<div className={`fixed transform ease-in-out transition-all duration-300 ${isOpen? `translate-x-0`: `translate-x-[40rem]`} 
             md:hidden   ${mode? `bg-[#212529]`:`bg-[#DEE2E6]`} z-50  w-[20rem] top-[4rem] h-[90vh]`}>
 
 <Menu isOpen={isOpen} setIsOpen={setIsOpen}/>

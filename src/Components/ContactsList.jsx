@@ -133,14 +133,14 @@ export default function ContactsList(props) {
         // contacts card container
         <div className="list-main  flex flex-col items-start justify-start md:border-r border-slate-gray  h-[85vH] md:w-[24rem] space-y-1 p-6  " >
 
-            <span className="text-xl font-semibold mb-1 " >{title} {t.length}</span>
+            <span className="text-xl font-semibold mb-1 " >{title} {props.searchTerm ?renderList?.length: t.length}</span>
 
             {renderList?.length > 0 ? <>{renderList}</> :
              <div  className=' w-full text-3xl  font-montserrat  h-1/2 mt-[4rem] flex flex-col justify-center items-center '
-        >Start Adding {title} 
+        >No {title} Found!
 
 
-        <button className='border border-blue-500 hover:bg-neutral-400  hover:text-black py-1 px-3 rounded-3xl mt-6 bg-transparent font-montserrat' onClick={()=>navigate("/addContact")}>Start +</button>
+        {/* <button className='border border-blue-500 hover:bg-neutral-400  hover:text-black py-1 px-3 rounded-3xl mt-6 bg-transparent font-montserrat' onClick={()=>navigate("/addContact")}>Start +</button> */}
          {/* >
                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512" fill={`${mode? `#DEE2E6`: `black`}`} >
                  <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" /></svg> Add New </div> */}

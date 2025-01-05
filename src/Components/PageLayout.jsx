@@ -19,13 +19,15 @@ return(
         <div className="  border-blue-500 flex flex-1 items-start md:justify-start justify-center gap-2 p-2 w-full ">
             
             
-        <div className="max-lg:hidden flex flex-1 items-start justify-start gap-2 p-2   border-red-500">
-                
+        <div className="max-lg:hidden flex flex-1 items-start justify-start gap-2 p-2   border-red-500">   
         <Menu/> 
         </div>   
-            
-            {/* mobile version */}
-            <div className="md:hidden">
+    
+    
+    
+    
+        {/* mobile version */}
+        <div className="md:hidden">
                 {selectedId ? <ContactDetailsNew/> : children }
         
         </div>
@@ -36,11 +38,12 @@ return(
             {children}
         </div>
 
-                <div className="w-[100vw]  border-red-500 overflow-auto flex flex-col items-center p-6 h-[85vh] max-md:hidden ">
-                {/* {!selectedId && } */}
+        
+         <div className="w-[100vw]  border-red-500 overflow-auto flex flex-col items-center p-6 h-[85vh] max-md:hidden ">
+            {/* {!selectedId && } */}
                 
-                {selectedId ? <ContactDetailsNew/> : <Timeline/> }
-                </div>
+        {selectedId ? <ContactDetailsNew/> : <Timeline/> }
+        </div>
         
 
         
